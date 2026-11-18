@@ -1,0 +1,14 @@
+# Single source of strategy numbers for scanner, replay/backtest and live.
+# Changing risk or capital settings must go through `sports-arb-capital set-policy`
+# (authorization phrase required); hard ceilings in live_config.py still apply.
+[strategy]
+slippage_bps = "25"
+kalshi_per_order_reserve = "0.01"
+kalshi_cap_extra = "0.02"
+
+[capital]
+reinvest_pct = "60"
+withdraw_pct = "25"
+reserve_pct = "15"
+max_drawdown_pct = "10"
+max_trade_fraction = "0.25"

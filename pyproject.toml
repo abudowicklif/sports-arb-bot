@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sports-arb-bot"
+version = "0.1.0"
+description = "Fee-aware Polymarket and Kalshi sports arbitrage production execution"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+dependencies = [
+  "aiohttp>=3.9,<4",
+  "py-clob-client-v2==1.2.1",
+  "kalshi-python-async==3.35.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+  "ruff>=0.8,<1",
+]
+
+[project.scripts]
+sports-arb = "sports_arb.cli:main"
+sports-arb-live = "sports_arb.live_cli:main"
+sports-arb-multi = "sports_arb.multi_cli:main"
+sports-arb-record = "sports_arb.record:main"
+sports-arb-backtest = "sports_arb.backtest_cli:main"
+sports-arb-capital = "sports_arb.accounting:main"
+sports-arb-service = "sports_arb.service:main"
+sports-arb-dashboard = "sports_arb.dashboard:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sports_arb"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

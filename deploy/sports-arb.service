@@ -1,0 +1,21 @@
+[Unit]
+Description=sports-arb recorder/monitor (no order placement)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sportsarb
+WorkingDirectory=/opt/sports-arb-bot
+Environment=SPORTS_ARB_DATA=/var/lib/sports-arb
+ExecStart=/opt/sports-arb-bot/.venv/bin/sports-arb-service run
+Restart=always
+RestartSec=5
+# External watchdog: restart if the supervisor itself stops writing status.
+WatchdogSec=0
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/sports-arb
+
+[Install]
+WantedBy=multi-user.target

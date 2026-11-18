@@ -1,0 +1,32 @@
+800 paths x 300 bets, start $100, cost/share 0.50
+
+POSITIVE edge q=0.56
+method                       mean   median       p5   ruin%  p95 DD%  halt%
+flat                       135.41   136.00   108.00     0.0     17.5    0.0
+kelly                      170.09   165.91   109.01     0.0     26.5    0.0
+adaptive                   170.09   165.91   109.01     0.0     26.5    0.0
+martingale                 125.56   109.00    72.00     0.0     30.1   95.0
+capped_martingale          125.56   109.00    72.00     0.0     30.1   95.0
+fractional_martingale      116.81   107.88    87.81     0.0     13.6   95.0
+paroli                     202.54   200.00    87.00     0.0     53.5    1.8
+
+ZERO edge q=0.50
+method                       mean   median       p5   ruin%  p95 DD%  halt%
+flat                        99.29   100.00    72.00     0.0     37.3    0.0
+kelly                      100.00   100.00   100.00     0.0      0.0    0.0
+adaptive                   100.00   100.00   100.00     0.0      0.0    0.0
+martingale                 101.10    90.00    70.00     0.0     30.7   99.0
+capped_martingale          101.10    90.00    70.00     0.0     30.7   99.0
+fractional_martingale      100.56    95.81    86.81     0.0     14.9   99.0
+paroli                      99.72    91.00    40.00     0.0     66.9   27.2
+
+NEGATIVE edge q=0.46
+method                       mean   median       p5   ruin%  p95 DD%  halt%
+flat                        75.35    76.00    48.00     0.0     56.0    3.4
+kelly                      100.00   100.00   100.00     0.0      0.0    0.0
+adaptive                   100.00   100.00   100.00     0.0      0.0    0.0
+martingale                  90.39    84.00    70.00     0.0     31.0   99.9
+capped_martingale           90.39    84.00    70.00     0.0     31.0   99.9
+fractional_martingale       94.22    91.81    85.50     0.0     16.5   99.9
+paroli                      59.53    40.00    40.00     0.0     69.0   63.2
+
